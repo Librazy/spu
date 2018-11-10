@@ -8,7 +8,9 @@
         "test": "src/tests/"
     },
     "dependencies": {
-        "npm": "^6.4.1"
+        "@types/restify": "^7.2.6",
+        "npm": "^6.4.1",
+        "restify": "^7.2.2"
     },
     "devDependencies": {
         "@types/mocha": "^5.2.0",
@@ -25,6 +27,7 @@
     },
     "scripts": {
         "build": "tsc && browserify ./dist/index.js > ./dist/bundle.js && uglifyjs ./dist/bundle.js -m -c -o ./docs/bundle.min.js",
+        "restful": "tsc && node ./dist/restful.js",
         "test": "mocha --require espower-typescript/guess \"./src/test/**/*.ts\""
     },
     "repository": {
