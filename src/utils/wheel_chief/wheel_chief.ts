@@ -1,5 +1,5 @@
 import { ArgumentParser } from './argument_parsers'
-import { isWhiteSpace, UpdateResult } from '../utils'
+import { UpdateResult } from '../utils'
 import { Updater } from './updater'
 
 export type Property = { [propertyName: string]: any }
@@ -48,6 +48,11 @@ export class WheelChief {
         const slash = input.charAt(0) === '/'
         if (slash) {
             input = input.slice(1)
+        }
+
+        const mcNamespace = input.startsWith("minecraft:");
+        if (mcNamespace) {
+            input = input.slice(10)
         }
 
         // 把输入的命令解析为 `Command`
